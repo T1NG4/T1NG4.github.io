@@ -1,7 +1,7 @@
 ---
 import type { Project } from '../data/projects';
 import type { Lang } from '../i18n/ui';
-import { useTranslations } from '../i18n/ui';
+import { localizedProjectPath, useTranslations } from '../i18n/ui';
 
 interface Props {
 	project: Project;
@@ -10,13 +10,17 @@ interface Props {
 
 const { project, lang } = Astro.props;
 const t = useTranslations(lang);
+const detailPath = localizedProjectPath(lang, project.slug);
 ---
 
-<article class="project-card">
+<article class="project-card reveal" style={`--glow: ${project.accent}`}>
+	<span class="project-card-kicker">{project.kicker[lang]}</span>
 	<h3>{project.title[lang]}</h3>
-	<p>{project.description[lang]}</p>
-	<div class="tags">
-		{project.tags.map((tag) => <span class="tag">{tag}</span>)}
+	<p>{project.summary[lang]}</p>
+
+	<div class="chips">
+		{project.stack.map((item) => <span class="chip">{item}</span>)}
 	</div>
-	<a href={project.url} target="_blank" rel="noopener noreferrer">{t.projects.viewRepo} →</a>
+
+	<a class="card-link" href={detailPath}>{t.project.viewDetails} <span>→</span></a>
 </article>

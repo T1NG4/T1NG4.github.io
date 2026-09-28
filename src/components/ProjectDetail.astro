@@ -1,0 +1,93 @@
+---
+import type { Project } from '../data/projects';
+import type { Lang } from '../i18n/ui';
+import { homePath, useTranslations } from '../i18n/ui';
+
+interface Props {
+	project: Project;
+	lang: Lang;
+}
+
+const { project, lang } = Astro.props;
+const t = useTranslations(lang);
+const backHref = `${homePath(lang) === '/' ? '' : homePath(lang)}/#projects`;
+---
+
+<div style={`--glow: ${project.accent}`}>
+	<section class="detail-hero container">
+		<a class="back-link" href={backHref}>← {t.project.back}</a>
+		<span class="featured-kicker">{project.kicker[lang]}</span>
+		<h1>{project.title[lang]}</h1>
+		<p class="prose">{project.summary[lang]}</p>
+
+		<div class="detail-meta">
+			{
+				project.externalUrl && (
+					<a
+						class="btn btn-primary btn-sm"
+						href={project.externalUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						{project.externalLabel?.[lang] ?? t.project.viewRepo}
+					</a>
+				)
+			}
+			<a
+				class="btn btn-sm"
+				href={project.url}
+				target="_blank"
+				rel="noopener noreferrer">{t.project.viewRepo}</a
+			>
+			{
+				project.showReleaseBadges && (
+					<div class="featured-badges">
+						<img
+							src={`https://img.shields.io/github/v/release/${project.repo}?include_prereleases&label=release&style=flat-square&color=7c5cff`}
+							alt={`${project.title[lang]} release`}
+							loading="lazy"
+							width="120"
+							height="20"
+						/>
+						<img
+							src={`https://img.shields.io/github/downloads/${project.repo}/total?label=downloads&style=flat-square&color=21d4fd`}
+							alt={`${project.title[lang]} downloads`}
+							loading="lazy"
+							width="120"
+							height="20"
+						/>
+					</div>
+				)
+			}
+		</div>
+	</section>
+
+	<div class="container detail-body">
+		<div>
+			{
+				project.image && (
+					<div class="detail-image">
+						<img src={project.image} alt={project.title[lang]} />
+					</div>
+				)
+			}
+			<p class="prose">{project.description[lang]}</p>
+		</div>
+
+		<aside>
+			<div class="detail-panel">
+				<h2>{t.project.highlights}</h2>
+				<ul class="featured-highlights" style="margin-bottom: 0">
+					{project.highlights[lang].map((item) => <li>{item}</li>)}
+				</ul>
+			</div>
+
+			<div class="detail-panel">
+				<h2>{t.project.stack}</h2>
+				<div class="chips">
+					{project.stack.map((item) => <span class="chip">{item}</span>)}
+				</div>
+			</div>
+		</aside>
+	</div>
+</div>

@@ -1,0 +1,86 @@
+---
+import type { Project } from '../data/projects';
+import type { Lang } from '../i18n/ui';
+import { localizedProjectPath, useTranslations } from '../i18n/ui';
+
+interface Props {
+	project: Project;
+	lang: Lang;
+	reverse?: boolean;
+}
+
+const { project, lang, reverse = false } = Astro.props;
+const t = useTranslations(lang);
+const detailPath = localizedProjectPath(lang, project.slug);
+const initials = project.title[lang].slice(0, 2).toUpperCase();
+---
+
+<article
+	class:list={['featured', 'reveal', { reverse }]}
+	style={`--glow: ${project.accent}`}
+>
+	<div class="featured-body">
+		<span class="featured-kicker">{project.kicker[lang]}</span>
+		<h3>{project.title[lang]}</h3>
+		<p>{project.summary[lang]}</p>
+
+		<ul class="featured-highlights">
+			{project.highlights[lang].slice(0, 4).map((item) => <li>{item}</li>)}
+		</ul>
+
+		<div class="featured-actions">
+			{
+				project.externalUrl && (
+					<a
+						class="btn btn-primary btn-sm"
+						href={project.externalUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						{project.externalLabel?.[lang] ?? t.project.viewRepo}
+					</a>
+				)
+			}
+			<a class="btn btn-sm" href={detailPath}>{t.project.viewDetails}</a>
+			<a
+				class="btn btn-sm"
+				href={project.url}
+				target="_blank"
+				rel="noopener noreferrer">{t.project.viewRepo}</a
+			>
+		</div>
+
+		{
+			project.showReleaseBadges && (
+				<div class="featured-badges">
+					<img
+						src={`https://img.shields.io/github/v/release/${project.repo}?include_prereleases&label=release&style=flat-square&color=7c5cff`}
+						alt={`${project.title[lang]} release`}
+						loading="lazy"
+						width="120"
+						height="20"
+					/>
+					<img
+						src={`https://img.shields.io/github/downloads/${project.repo}/total?label=downloads&style=flat-square&color=21d4fd`}
+						alt={`${project.title[lang]} downloads`}
+						loading="lazy"
+						width="120"
+						height="20"
+					/>
+				</div>
+			)
+		}
+	</div>
+
+	{
+		project.image ? (
+			<div class="featured-media">
+				<img src={project.image} alt={project.title[lang]} loading="lazy" />
+			</div>
+		) : (
+			<div class="featured-media placeholder">
+				<span>{initials}</span>
+			</div>
+		)
+	}
+</article>

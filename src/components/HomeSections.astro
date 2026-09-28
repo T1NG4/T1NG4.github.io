@@ -1,8 +1,11 @@
 ---
-import { projects } from '../data/projects';
+import { featuredProjects, otherProjects } from '../data/projects';
 import type { Lang } from '../i18n/ui';
 import { useTranslations } from '../i18n/ui';
+import FeaturedProject from './FeaturedProject.astro';
 import ProjectCard from './ProjectCard.astro';
+import SectionTitle from './SectionTitle.astro';
+import StackSection from './StackSection.astro';
 
 interface Props {
 	lang: Lang;
@@ -12,26 +15,45 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<section class="container" id="about">
-	<h2>{t.about.title}</h2>
-	<p class="section-lead">{t.about.body}</p>
-</section>
-
 <section class="container" id="projects">
-	<h2>{t.projects.title}</h2>
-	<div class="project-grid">
-		{projects.map((project) => <ProjectCard project={project} lang={lang} />)}
+	<SectionTitle kicker={t.featured.kicker} title={t.featured.title} lead={t.featured.lead} />
+	<div class="featured-list">
+		{
+			featuredProjects.map((project, index) => (
+				<FeaturedProject project={project} lang={lang} reverse={index % 2 === 1} />
+			))
+		}
 	</div>
 </section>
 
+<section class="container">
+	<SectionTitle kicker={t.others.kicker} title={t.others.title} lead={t.others.lead} />
+	<div class="project-grid">
+		{otherProjects.map((project) => <ProjectCard project={project} lang={lang} />)}
+	</div>
+</section>
+
+<StackSection lang={lang} />
+
+<section class="container" id="about">
+	<SectionTitle kicker={t.about.kicker} title={t.about.title} />
+	<p class="prose reveal">{t.about.body}</p>
+</section>
+
 <section class="container" id="contact">
-	<h2>{t.contact.title}</h2>
-	<p class="section-lead">{t.contact.body}</p>
-	<div class="contact-links">
-		<a class="btn" href="https://github.com/T1NG4" target="_blank" rel="noopener noreferrer"
-			>{t.contact.github}</a
+	<SectionTitle kicker={t.contact.kicker} title={t.contact.title} lead={t.contact.body} />
+	<div class="contact-links reveal">
+		<a
+			class="btn btn-primary"
+			href="https://github.com/T1NG4"
+			target="_blank"
+			rel="noopener noreferrer">{t.contact.github}</a
 		>
-		<!-- TODO: substitua pelo seu e-mail público -->
-		<a class="btn" href="mailto:seu-email@exemplo.com">{t.contact.email}</a>
+		<a
+			class="btn"
+			href="https://discord.com/users/871460606618767360"
+			target="_blank"
+			rel="noopener noreferrer">{t.contact.discord}</a
+		>
 	</div>
 </section>

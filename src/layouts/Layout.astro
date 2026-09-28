@@ -1,19 +1,25 @@
 ---
 import '../styles/global.css';
-import Header from '../components/Header.astro';
+import Background from '../components/Background.astro';
 import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Reveal from '../components/Reveal.astro';
 import type { Lang } from '../i18n/ui';
 import { useTranslations } from '../i18n/ui';
 
 interface Props {
 	lang: Lang;
 	title?: string;
+	description?: string;
+	ogImage?: string;
 }
 
-const { lang, title } = Astro.props;
+const { lang, title, description, ogImage } = Astro.props;
 const t = useTranslations(lang);
 const pageTitle = title ?? t.siteTitle;
+const pageDescription = description ?? t.meta.description;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const socialImage = ogImage ? new URL(ogImage, Astro.site) : undefined;
 ---
 
 <!doctype html>
@@ -24,20 +30,24 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={t.meta.description} />
+		<meta name="theme-color" content="#07080d" />
+		<meta name="description" content={pageDescription} />
 		<meta property="og:title" content={pageTitle} />
-		<meta property="og:description" content={t.meta.description} />
+		<meta property="og:description" content={pageDescription} />
 		<meta property="og:url" content={canonical} />
 		<meta property="og:type" content="website" />
-		<meta name="twitter:card" content="summary" />
+		{socialImage && <meta property="og:image" content={socialImage} />}
+		<meta name="twitter:card" content={socialImage ? 'summary_large_image' : 'summary'} />
 		<link rel="canonical" href={canonical} />
 		<title>{pageTitle}</title>
 	</head>
 	<body>
+		<Background />
 		<Header lang={lang} />
 		<main>
 			<slot />
 		</main>
 		<Footer lang={lang} />
+		<Reveal />
 	</body>
 </html>

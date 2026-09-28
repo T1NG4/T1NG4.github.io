@@ -1,0 +1,34 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/ui';
+import SectionTitle from './SectionTitle.astro';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const technologies = [
+	'TypeScript',
+	'JavaScript',
+	'C#',
+	'.NET',
+	'C++17',
+	'Lua',
+	'Node.js',
+	'Astro',
+	'Electron',
+	'Chrome Extensions',
+	'FiveM',
+	'HTML & CSS',
+];
+---
+
+<section class="container" id="stack">
+	<SectionTitle kicker={t.stack.kicker} title={t.stack.title} lead={t.stack.lead} />
+	<div class="stack-grid reveal">
+		{technologies.map((tech) => <span class="stack-chip">{tech}</span>)}
+	</div>
+</section>

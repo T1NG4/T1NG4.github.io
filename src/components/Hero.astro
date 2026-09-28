@@ -1,4 +1,5 @@
 ---
+import { projects } from '../data/projects';
 import type { Lang } from '../i18n/ui';
 import { useTranslations } from '../i18n/ui';
 
@@ -8,20 +9,38 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const projectsHash = lang === 'en' ? '/en#projects' : '/#projects';
+const prefix = lang === 'en' ? '/en' : '';
 ---
 
 <section class="hero container" id="home">
-	<p class="section-lead">{t.hero.greeting}</p>
-	<h1>{t.hero.name}</h1>
-	<p class="tagline">{t.hero.tagline}</p>
+	<span class="hero-badge">
+		<span class="dot"></span>
+		{t.hero.badge}
+	</span>
+	<p class="hero-greeting">{t.hero.greeting}</p>
+	<h1><span class="gradient">{t.hero.name}</span></h1>
+	<p class="hero-headline">{t.hero.headline}</p>
+	<p class="hero-tagline">{t.hero.tagline}</p>
+
 	<div class="hero-actions">
-		<a class="btn btn-primary" href={projectsHash}>{t.hero.ctaSite}</a>
-		<a
-			class="btn"
-			href="https://github.com/T1NG4"
-			target="_blank"
-			rel="noopener noreferrer">{t.hero.ctaGithub}</a
-		>
+		<a class="btn btn-primary" href={`${prefix}/#projects`}>{t.hero.ctaProjects}</a>
+		<a class="btn" href="https://github.com/T1NG4" target="_blank" rel="noopener noreferrer">
+			{t.hero.ctaGithub}
+		</a>
+	</div>
+
+	<div class="hero-stats">
+		<div class="hero-stat">
+			<strong>{projects.length}</strong>
+			<span>{t.hero.stats.projects}</span>
+		</div>
+		<div class="hero-stat">
+			<strong>3</strong>
+			<span>{t.hero.stats.platforms}</span>
+		</div>
+		<div class="hero-stat">
+			<strong>C#/C++/TS</strong>
+			<span>{t.hero.stats.languages}</span>
+		</div>
 	</div>
 </section>

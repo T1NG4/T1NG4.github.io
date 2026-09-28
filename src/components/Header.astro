@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../i18n/ui';
-import { pathForLang, useTranslations } from '../i18n/ui';
+import { homePath, useTranslations } from '../i18n/ui';
 
 interface Props {
 	lang: Lang;
@@ -8,20 +8,34 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const home = homePath(lang);
 const prefix = lang === 'en' ? '/en' : '';
-const otherLang = lang === 'pt' ? 'en' : 'pt';
-const otherPath = pathForLang(otherLang);
+const otherPath = homePath(lang === 'pt' ? 'en' : 'pt');
 ---
 
-<header class="site-header">
+<header class="site-header" id="siteHeader">
 	<div class="container inner">
-		<a class="logo" href={prefix || '/'}>T1NG4</a>
+		<a class="logo" href={home}>
+			<span class="logo-mark"></span>
+			T1NG4
+		</a>
 		<nav class="nav" aria-label="Main">
-			<a href={`${prefix}#home`}>{t.nav.home}</a>
-			<a href={`${prefix}#about`}>{t.nav.about}</a>
-			<a href={`${prefix}#projects`}>{t.nav.projects}</a>
-			<a href={`${prefix}#contact`}>{t.nav.contact}</a>
+			<div class="nav-links">
+				<a href={`${prefix}/#projects`}>{t.nav.projects}</a>
+				<a href={`${prefix}/#stack`}>{t.nav.stack}</a>
+				<a href={`${prefix}/#about`}>{t.nav.about}</a>
+				<a href={`${prefix}/#contact`}>{t.nav.contact}</a>
+			</div>
 			<a class="lang-link" href={otherPath}>{t.footer.langSwitch}</a>
 		</nav>
 	</div>
 </header>
+
+<script>
+	const header = document.getElementById('siteHeader');
+	if (header) {
+		const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+		onScroll();
+		window.addEventListener('scroll', onScroll, { passive: true });
+	}
+</script>
