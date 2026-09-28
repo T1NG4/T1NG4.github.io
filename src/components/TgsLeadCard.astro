@@ -1,0 +1,37 @@
+---
+import { projects } from '../data/projects';
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const project = projects.find((p) => p.slug === 'tgs-community') ?? projects[0];
+---
+
+<article class="tgs-lead-card reveal">
+	<div class="tgs-lead-media">
+		<img src="/tgs/TGS_logo.png" alt="" width="72" height="72" loading="lazy" />
+	</div>
+	<div class="tgs-lead-body">
+		<span class="project-card-kicker">{project.kicker[lang]}</span>
+		<h3>{project.title[lang]}</h3>
+		<p>{project.summary[lang]}</p>
+		<div class="tgs-lead-actions">
+			<a
+				class="btn btn-primary btn-sm"
+				href={project.externalUrl ?? project.url}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				{project.externalLabel?.[lang] ?? t.project.viewRepo}
+			</a>
+			<a class="btn btn-outline btn-sm" href={project.url} target="_blank" rel="noopener noreferrer">
+				{t.project.viewRepo}
+			</a>
+		</div>
+	</div>
+</article>

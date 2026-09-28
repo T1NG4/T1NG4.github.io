@@ -1,0 +1,112 @@
+---
+import { projects } from '../data/projects';
+import type { Lang } from '../i18n/ui';
+import { localizedProjectPath, useTranslations } from '../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const modalItems = projects.map((project) => ({
+	slug: project.slug,
+	title: project.title[lang],
+	kicker: project.kicker[lang],
+	summary: project.summary[lang],
+	stack: project.stack,
+	detailPath: localizedProjectPath(lang, project.slug),
+	repoUrl: project.url,
+	externalUrl: project.externalUrl ?? null,
+	externalLabel: project.externalLabel?.[lang] ?? null,
+}));
+---
+
+<div
+	class="projects-modal"
+	id="projects-modal"
+	hidden
+	role="dialog"
+	aria-modal="true"
+	aria-labelledby="projects-modal-title"
+>
+	<div class="projects-modal-overlay" data-close-projects-modal></div>
+	<div class="projects-modal-panel">
+		<header class="projects-modal-header">
+			<h2 id="projects-modal-title">{t.modal.title}</h2>
+			<button type="button" class="projects-modal-close" data-close-projects-modal aria-label={t.modal.close}>
+				×
+			</button>
+		</header>
+		<ul class="projects-modal-list">
+			{
+				modalItems.map((item) => (
+					<li class="projects-modal-item">
+						<div class="projects-modal-item-head">
+							<span class="project-card-kicker">{item.kicker}</span>
+							<h3>{item.title}</h3>
+						</div>
+						<p>{item.summary}</p>
+						<div class="chips">
+							{item.stack.map((tech) => <span class="chip">{tech}</span>)}
+						</div>
+						<div class="projects-modal-item-actions">
+							<a class="btn btn-primary btn-sm" href={item.detailPath}>{t.modal.viewDetails}</a>
+							<a class="btn btn-outline btn-sm" href={item.repoUrl} target="_blank" rel="noopener noreferrer">
+								{t.project.viewRepo}
+							</a>
+							{
+								item.externalUrl && (
+									<a
+										class="btn btn-outline btn-sm"
+										href={item.externalUrl}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										{item.externalLabel ?? t.modal.external}
+									</a>
+								)
+							}
+						</div>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</div>
+
+<script>
+	function initProjectsModal() {
+		const modal = document.getElementById('projects-modal');
+		if (!modal) return;
+
+		const openers = document.querySelectorAll('[data-open-projects-modal]');
+		const closers = modal.querySelectorAll('[data-close-projects-modal]');
+		let lastFocus: HTMLElement | null = null;
+
+		const open = () => {
+			lastFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+			modal.hidden = false;
+			document.body.classList.add('modal-open');
+			const closeBtn = modal.querySelector<HTMLButtonElement>('.projects-modal-close');
+			closeBtn?.focus();
+		};
+
+		const close = () => {
+			modal.hidden = true;
+			document.body.classList.remove('modal-open');
+			lastFocus?.focus();
+		};
+
+		openers.forEach((el) => el.addEventListener('click', open));
+		closers.forEach((el) => el.addEventListener('click', close));
+
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && !modal.hidden) close();
+		});
+	}
+
+	initProjectsModal();
+	document.addEventListener('astro:page-load', initProjectsModal);
+</script>

@@ -80,6 +80,10 @@ main {
 	padding: 5rem 0;
 }
 
+.section-spacious {
+	padding: 6.5rem 0;
+}
+
 .section-muted {
 	background: var(--color-gray-light);
 }
@@ -212,6 +216,16 @@ main {
 	background: var(--gradient-hero);
 	position: relative;
 	overflow: hidden;
+}
+
+.hero-band--compact {
+	min-height: auto;
+	padding: calc(var(--header-offset) + 3rem) 0 5rem;
+}
+
+.hero-container--single {
+	grid-template-columns: 1fr;
+	max-width: 42rem;
 }
 
 .hero-band::before {
@@ -426,9 +440,15 @@ main {
 .prose {
 	color: var(--color-gray);
 	font-size: 1.05rem;
-	max-width: 68ch;
+	max-width: 60ch;
 	margin-inline: auto;
 	text-align: center;
+	line-height: 1.75;
+}
+
+.prose-left {
+	text-align: left;
+	margin-inline: 0;
 }
 
 /* ---------- featured / product cards ---------- */
@@ -756,6 +776,166 @@ main {
 .detail-body .prose {
 	text-align: left;
 	margin-inline: 0;
+}
+
+/* ---------- TGS lead card ---------- */
+
+.tgs-lead-card {
+	display: grid;
+	gap: 1.5rem;
+	align-items: center;
+	padding: 1.75rem;
+	border-radius: 20px;
+	background: var(--color-white);
+	box-shadow: var(--shadow-card);
+	max-width: 52rem;
+	margin-inline: auto;
+}
+
+@media (min-width: 640px) {
+	.tgs-lead-card {
+		grid-template-columns: auto 1fr;
+		padding: 2rem 2.25rem;
+	}
+}
+
+.tgs-lead-media img {
+	border-radius: 16px;
+}
+
+.tgs-lead-body h3 {
+	margin: 0.35rem 0 0.65rem;
+	font-size: 1.35rem;
+	font-weight: 700;
+	color: var(--color-primary);
+}
+
+.tgs-lead-body p {
+	margin: 0 0 1.25rem;
+	color: var(--color-gray);
+	font-size: 0.98rem;
+	line-height: 1.65;
+}
+
+.tgs-lead-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+}
+
+.projects-modal-cta {
+	text-align: center;
+	margin: 2.5rem 0 0;
+}
+
+/* ---------- projects modal ---------- */
+
+body.modal-open {
+	overflow: hidden;
+}
+
+.projects-modal[hidden] {
+	display: none;
+}
+
+.projects-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 200;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 1.25rem;
+}
+
+.projects-modal-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.55);
+	backdrop-filter: blur(4px);
+}
+
+.projects-modal-panel {
+	position: relative;
+	width: min(100%, 720px);
+	max-height: min(88vh, 900px);
+	margin-top: 4vh;
+	display: flex;
+	flex-direction: column;
+	background: var(--color-white);
+	border-radius: 20px;
+	box-shadow: var(--shadow-card-hover);
+	overflow: hidden;
+}
+
+.projects-modal-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1.25rem 1.5rem;
+	border-bottom: 1px solid var(--border-color);
+	flex-shrink: 0;
+}
+
+.projects-modal-header h2 {
+	margin: 0;
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--color-primary);
+}
+
+.projects-modal-close {
+	width: 2.5rem;
+	height: 2.5rem;
+	border: none;
+	border-radius: 50%;
+	background: var(--color-gray-light);
+	font-size: 1.5rem;
+	line-height: 1;
+	cursor: pointer;
+	color: var(--color-primary);
+}
+
+.projects-modal-close:hover {
+	background: #eee;
+}
+
+.projects-modal-list {
+	list-style: none;
+	margin: 0;
+	padding: 1rem 1.25rem 1.5rem;
+	overflow-y: auto;
+	display: grid;
+	gap: 1rem;
+}
+
+.projects-modal-item {
+	padding: 1.25rem;
+	border-radius: 16px;
+	border: 1px solid var(--border-color);
+	background: var(--color-gray-light);
+}
+
+.projects-modal-item h3 {
+	margin: 0.25rem 0 0.5rem;
+	font-size: 1.05rem;
+	font-weight: 600;
+	color: var(--color-primary);
+}
+
+.projects-modal-item > p {
+	margin: 0 0 0.85rem;
+	font-size: 0.9rem;
+	color: var(--color-gray);
+	line-height: 1.55;
+}
+
+.projects-modal-item-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-top: 0.85rem;
 }
 
 /* ---------- footer ---------- */

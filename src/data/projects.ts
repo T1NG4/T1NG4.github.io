@@ -28,7 +28,7 @@ export const projects: Project[] = [
 		url: 'https://github.com/T1NG4/TGS-Community',
 		externalUrl: 'https://tgs.gamer.gd/',
 		externalLabel: { pt: 'Visitar site oficial', en: 'Visit official site' },
-		featured: true,
+		featured: false,
 		image: '/tgs/TGS_logo.png',
 		accent: '#1a1a1a',
 		year: '2025',

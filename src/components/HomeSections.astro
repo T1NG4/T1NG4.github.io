@@ -1,11 +1,9 @@
 ---
-import { featuredProjects, otherProjects } from '../data/projects';
 import type { Lang } from '../i18n/ui';
 import { useTranslations } from '../i18n/ui';
-import FeaturedProject from './FeaturedProject.astro';
-import ProjectCard from './ProjectCard.astro';
 import SectionTitle from './SectionTitle.astro';
 import StackSection from './StackSection.astro';
+import TgsLeadCard from './TgsLeadCard.astro';
 
 interface Props {
 	lang: Lang;
@@ -15,45 +13,33 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<section class="section-band section-muted" id="projects">
+<section class="section-band section-muted section-spacious" id="projects">
 	<div class="container">
-		<SectionTitle kicker={t.featured.kicker} title={t.featured.title} lead={t.featured.lead} />
-		<div class="featured-list">
-			{featuredProjects.map((project) => <FeaturedProject project={project} lang={lang} />)}
-		</div>
-	</div>
-</section>
-
-<section class="section-band">
-	<div class="container">
-		<SectionTitle kicker={t.others.kicker} title={t.others.title} lead={t.others.lead} />
-		<div class="project-grid">
-			{otherProjects.map((project) => <ProjectCard project={project} lang={lang} />)}
-		</div>
+		<SectionTitle kicker={t.projects.kicker} title={t.projects.title} lead={t.projects.lead} />
+		<TgsLeadCard lang={lang} />
+		<p class="projects-modal-cta reveal">
+			<button type="button" class="btn btn-outline" data-open-projects-modal>
+				{t.modal.openAll}
+			</button>
+		</p>
 	</div>
 </section>
 
 <StackSection lang={lang} />
 
-<section class="section-band" id="about">
+<section class="section-band section-spacious" id="about">
 	<div class="container">
 		<SectionTitle kicker={t.about.kicker} title={t.about.title} />
-		<p class="prose reveal">{t.about.body}</p>
+		<p class="prose prose-left reveal">{t.about.body}</p>
 	</div>
 </section>
 
-<section class="section-band section-muted" id="contact">
+<section class="section-band section-muted section-spacious" id="contact">
 	<div class="container">
 		<SectionTitle kicker={t.contact.kicker} title={t.contact.title} lead={t.contact.body} />
 		<div class="contact-links reveal">
 			<a
 				class="btn btn-primary"
-				href="https://tgs.gamer.gd/"
-				target="_blank"
-				rel="noopener noreferrer">TGS Community</a
-			>
-			<a
-				class="btn btn-outline"
 				href="https://github.com/T1NG4"
 				target="_blank"
 				rel="noopener noreferrer">{t.contact.github}</a

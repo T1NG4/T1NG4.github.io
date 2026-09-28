@@ -12,30 +12,25 @@ export const ui = {
 			contact: 'Contato',
 		},
 		hero: {
-			badge: 'TGS Community · FiveM',
-			greeting: 'Desenvolvedor por trás do',
-			name: 'TGS Community',
-			headline: 'Scripts, mods, gráficos e apps desktop para FiveM.',
+			greeting: 'Olá, eu sou',
+			name: 'T1NG4',
 			tagline:
-				'Meu projeto principal é o ecossistema TGS — site oficial, launcher, ferramentas para criadores e outros projetos pessoais em paralelo.',
-			ctaTgs: 'Visitar tgs.gamer.gd',
-			ctaProjects: 'Outros projetos',
+				'Desenvolvedor do TGS Community (FiveM) e de apps Windows e extensões Chrome — veja tudo no catálogo abaixo.',
+			ctaTgs: 'tgs.gamer.gd',
+			ctaProjects: 'Ver todos os projetos',
 			ctaGithub: 'GitHub',
-			stats: {
-				projects: 'projetos públicos',
-				platforms: 'Windows, Web e FiveM',
-				languages: 'TypeScript, C#, C++',
-			},
 		},
-		featured: {
-			kicker: 'Ecossistema',
-			title: 'TGS Community',
-			lead: 'O hub do ecossistema — mesmo visual e stack do site oficial.',
-		},
-		others: {
+		projects: {
 			kicker: 'Portfólio',
-			title: 'Outros projetos',
-			lead: 'Extensões, launchers, treino de recoil e trabalhos acadêmicos.',
+			title: 'Projetos',
+			lead: 'O ecossistema TGS em destaque; o restante abre no catálogo completo.',
+		},
+		modal: {
+			title: 'Todos os projetos',
+			close: 'Fechar',
+			openAll: 'Ver todos os projetos',
+			viewDetails: 'Detalhes',
+			external: 'Abrir',
 		},
 		stack: {
 			kicker: 'Ferramentas',
@@ -81,30 +76,25 @@ export const ui = {
 			contact: 'Contact',
 		},
 		hero: {
-			badge: 'TGS Community · FiveM',
-			greeting: 'Developer behind',
-			name: 'TGS Community',
-			headline: 'Scripts, mods, graphics, and desktop apps for FiveM.',
+			greeting: 'Hi, I am',
+			name: 'T1NG4',
 			tagline:
-				'My main project is the TGS ecosystem — official site, launcher, creator tooling, plus personal side projects.',
-			ctaTgs: 'Visit tgs.gamer.gd',
-			ctaProjects: 'Other projects',
+				'Developer of TGS Community (FiveM) plus Windows apps and Chrome extensions — browse the full catalog below.',
+			ctaTgs: 'tgs.gamer.gd',
+			ctaProjects: 'View all projects',
 			ctaGithub: 'GitHub',
-			stats: {
-				projects: 'public projects',
-				platforms: 'Windows, Web, and FiveM',
-				languages: 'TypeScript, C#, C++',
-			},
 		},
-		featured: {
-			kicker: 'Ecosystem',
-			title: 'TGS Community',
-			lead: 'The ecosystem hub — same look and stack as the official site.',
-		},
-		others: {
+		projects: {
 			kicker: 'Portfolio',
-			title: 'Other projects',
-			lead: 'Extensions, launchers, recoil training, and academic work.',
+			title: 'Projects',
+			lead: 'TGS ecosystem first; everything else is in the full catalog.',
+		},
+		modal: {
+			title: 'All projects',
+			close: 'Close',
+			openAll: 'View all projects',
+			viewDetails: 'Details',
+			external: 'Open',
 		},
 		stack: {
 			kicker: 'Tooling',
