@@ -29,6 +29,7 @@ export const projects: Project[] = [
 		externalUrl: 'https://tgs.gamer.gd/',
 		externalLabel: { pt: 'Visitar site oficial', en: 'Visit official site' },
 		featured: true,
+		image: '/tgs/TGS_logo.png',
 		accent: '#1a1a1a',
 		year: '2025',
 		stack: ['JavaScript', 'Node.js', 'FiveM', 'Monorepo'],
