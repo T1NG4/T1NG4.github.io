@@ -1,0 +1,27 @@
+---
+import type { Lang } from '../i18n/ui';
+import { pathForLang, useTranslations } from '../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const prefix = lang === 'en' ? '/en' : '';
+const otherLang = lang === 'pt' ? 'en' : 'pt';
+const otherPath = pathForLang(otherLang);
+---
+
+<header class="site-header">
+	<div class="container inner">
+		<a class="logo" href={prefix || '/'}>T1NG4</a>
+		<nav class="nav" aria-label="Main">
+			<a href={`${prefix}#home`}>{t.nav.home}</a>
+			<a href={`${prefix}#about`}>{t.nav.about}</a>
+			<a href={`${prefix}#projects`}>{t.nav.projects}</a>
+			<a href={`${prefix}#contact`}>{t.nav.contact}</a>
+			<a class="lang-link" href={otherPath}>{t.footer.langSwitch}</a>
+		</nav>
+	</div>
+</header>

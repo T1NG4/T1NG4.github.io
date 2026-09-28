@@ -1,0 +1,19 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<div class="container inner">
+		<span>© {year} T1NG4 · {t.footer.builtWith}</span>
+		<a href="https://github.com/T1NG4" rel="noopener noreferrer">github.com/T1NG4</a>
+	</div>
+</footer>

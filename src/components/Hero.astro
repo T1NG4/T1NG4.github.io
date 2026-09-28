@@ -1,0 +1,27 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const projectsHash = lang === 'en' ? '/en#projects' : '/#projects';
+---
+
+<section class="hero container" id="home">
+	<p class="section-lead">{t.hero.greeting}</p>
+	<h1>{t.hero.name}</h1>
+	<p class="tagline">{t.hero.tagline}</p>
+	<div class="hero-actions">
+		<a class="btn btn-primary" href={projectsHash}>{t.hero.ctaSite}</a>
+		<a
+			class="btn"
+			href="https://github.com/T1NG4"
+			target="_blank"
+			rel="noopener noreferrer">{t.hero.ctaGithub}</a
+		>
+	</div>
+</section>

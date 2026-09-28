@@ -1,0 +1,37 @@
+---
+import { projects } from '../data/projects';
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/ui';
+import ProjectCard from './ProjectCard.astro';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="container" id="about">
+	<h2>{t.about.title}</h2>
+	<p class="section-lead">{t.about.body}</p>
+</section>
+
+<section class="container" id="projects">
+	<h2>{t.projects.title}</h2>
+	<div class="project-grid">
+		{projects.map((project) => <ProjectCard project={project} lang={lang} />)}
+	</div>
+</section>
+
+<section class="container" id="contact">
+	<h2>{t.contact.title}</h2>
+	<p class="section-lead">{t.contact.body}</p>
+	<div class="contact-links">
+		<a class="btn" href="https://github.com/T1NG4" target="_blank" rel="noopener noreferrer"
+			>{t.contact.github}</a
+		>
+		<!-- TODO: substitua pelo seu e-mail público -->
+		<a class="btn" href="mailto:seu-email@exemplo.com">{t.contact.email}</a>
+	</div>
+</section>

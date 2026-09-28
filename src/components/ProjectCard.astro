@@ -1,0 +1,22 @@
+---
+import type { Project } from '../data/projects';
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/ui';
+
+interface Props {
+	project: Project;
+	lang: Lang;
+}
+
+const { project, lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<article class="project-card">
+	<h3>{project.title[lang]}</h3>
+	<p>{project.description[lang]}</p>
+	<div class="tags">
+		{project.tags.map((tag) => <span class="tag">{tag}</span>)}
+	</div>
+	<a href={project.url} target="_blank" rel="noopener noreferrer">{t.projects.viewRepo} →</a>
+</article>
