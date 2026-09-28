@@ -14,28 +14,31 @@ const otherPath = homePath(lang === 'pt' ? 'en' : 'pt');
 ---
 
 <header class="site-header" id="siteHeader">
-	<div class="container inner">
+	<nav class="nav-container">
 		<a class="logo" href={home}>
-			<span class="logo-mark"></span>
-			T1NG4
+			<span class="logo-mark">TGS</span>
+			<span class="logo-text">T1NG4</span>
 		</a>
-		<nav class="nav" aria-label="Main">
-			<div class="nav-links">
-				<a href={`${prefix}/#projects`}>{t.nav.projects}</a>
-				<a href={`${prefix}/#stack`}>{t.nav.stack}</a>
-				<a href={`${prefix}/#about`}>{t.nav.about}</a>
-				<a href={`${prefix}/#contact`}>{t.nav.contact}</a>
-			</div>
+		<div class="nav-links">
+			<a href={`${prefix}/#projects`}>{t.nav.projects}</a>
+			<a href={`${prefix}/#stack`}>{t.nav.stack}</a>
+			<a href={`${prefix}/#about`}>{t.nav.about}</a>
+			<a href={`${prefix}/#contact`}>{t.nav.contact}</a>
 			<a class="lang-link" href={otherPath}>{t.footer.langSwitch}</a>
-		</nav>
-	</div>
+		</div>
+	</nav>
 </header>
 
 <script>
 	const header = document.getElementById('siteHeader');
 	if (header) {
-		const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
-		onScroll();
-		window.addEventListener('scroll', onScroll, { passive: true });
+		const hero = document.getElementById('home');
+		const sync = () => {
+			const heroBottom = hero ? hero.getBoundingClientRect().bottom : 0;
+			header.classList.toggle('header--light', heroBottom < 80);
+		};
+		sync();
+		window.addEventListener('scroll', sync, { passive: true });
+		window.addEventListener('resize', sync);
 	}
 </script>

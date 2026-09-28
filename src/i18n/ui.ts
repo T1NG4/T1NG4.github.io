@@ -12,13 +12,14 @@ export const ui = {
 			contact: 'Contato',
 		},
 		hero: {
-			badge: 'Disponível para novos projetos',
-			greeting: 'Olá, eu sou',
-			name: 'T1NG4',
-			headline: 'Software desktop e web que as pessoas realmente usam.',
+			badge: 'TGS Community · FiveM',
+			greeting: 'Desenvolvedor por trás do',
+			name: 'TGS Community',
+			headline: 'Scripts, mods, gráficos e apps desktop para FiveM.',
 			tagline:
-				'Crio aplicativos Windows, extensões de navegador e ferramentas para comunidades — do launcher com auto-update à extensão na Chrome Web Store.',
-			ctaProjects: 'Ver projetos',
+				'Meu projeto principal é o ecossistema TGS — site oficial, launcher, ferramentas para criadores e outros projetos pessoais em paralelo.',
+			ctaTgs: 'Visitar tgs.gamer.gd',
+			ctaProjects: 'Outros projetos',
 			ctaGithub: 'GitHub',
 			stats: {
 				projects: 'projetos públicos',
@@ -27,14 +28,14 @@ export const ui = {
 			},
 		},
 		featured: {
-			kicker: 'Destaques',
-			title: 'Projetos principais',
-			lead: 'Aplicações em produção, com usuários reais e atualizações contínuas.',
+			kicker: 'Ecossistema',
+			title: 'TGS Community',
+			lead: 'O hub do ecossistema — mesmo visual e stack do site oficial.',
 		},
 		others: {
-			kicker: 'Mais trabalhos',
+			kicker: 'Portfólio',
 			title: 'Outros projetos',
-			lead: 'Ecossistemas, sites e projetos acadêmicos que completam o portfólio.',
+			lead: 'Extensões, launchers, treino de recoil e trabalhos acadêmicos.',
 		},
 		stack: {
 			kicker: 'Ferramentas',
@@ -44,7 +45,7 @@ export const ui = {
 		about: {
 			kicker: 'Sobre',
 			title: 'Quem está por trás',
-			body: 'Construo software que resolve problemas práticos: desde extensões de navegador publicadas na Chrome Web Store até launchers com auto-update e overlays in-game. Gosto de detalhe em UX, código manutenível e projetos que sobrevivem ao primeiro release.',
+			body: 'Sou o T1NG4, desenvolvedor do TGS Community e de ferramentas que orbitam esse ecossistema FiveM. Também publico extensões na Chrome Web Store e apps Windows independentes. Priorizo UX clara, releases estáveis e código que dá para manter.',
 		},
 		contact: {
 			kicker: 'Contato',
@@ -80,13 +81,14 @@ export const ui = {
 			contact: 'Contact',
 		},
 		hero: {
-			badge: 'Available for new projects',
-			greeting: 'Hi, I am',
-			name: 'T1NG4',
-			headline: 'Desktop and web software people actually use.',
+			badge: 'TGS Community · FiveM',
+			greeting: 'Developer behind',
+			name: 'TGS Community',
+			headline: 'Scripts, mods, graphics, and desktop apps for FiveM.',
 			tagline:
-				'I build Windows apps, browser extensions, and community tooling — from self-updating launchers to extensions on the Chrome Web Store.',
-			ctaProjects: 'View projects',
+				'My main project is the TGS ecosystem — official site, launcher, creator tooling, plus personal side projects.',
+			ctaTgs: 'Visit tgs.gamer.gd',
+			ctaProjects: 'Other projects',
 			ctaGithub: 'GitHub',
 			stats: {
 				projects: 'public projects',
@@ -95,14 +97,14 @@ export const ui = {
 			},
 		},
 		featured: {
-			kicker: 'Highlights',
-			title: 'Featured projects',
-			lead: 'Shipped applications with real users and continuous updates.',
+			kicker: 'Ecosystem',
+			title: 'TGS Community',
+			lead: 'The ecosystem hub — same look and stack as the official site.',
 		},
 		others: {
-			kicker: 'More work',
+			kicker: 'Portfolio',
 			title: 'Other projects',
-			lead: 'Ecosystems, websites, and academic work that round out the portfolio.',
+			lead: 'Extensions, launchers, recoil training, and academic work.',
 		},
 		stack: {
 			kicker: 'Tooling',
@@ -112,7 +114,7 @@ export const ui = {
 		about: {
 			kicker: 'About',
 			title: 'Who is behind it',
-			body: 'I build software that solves practical problems: from browser extensions published on the Chrome Web Store to self-updating launchers and in-game overlays. I care about UX detail, maintainable code, and projects that survive their first release.',
+			body: 'I am T1NG4, developer of TGS Community and tools around that FiveM ecosystem. I also ship Chrome Web Store extensions and standalone Windows apps. I focus on clear UX, stable releases, and maintainable code.',
 		},
 		contact: {
 			kicker: 'Contact',

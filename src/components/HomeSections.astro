@@ -15,45 +15,55 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<section class="container" id="projects">
-	<SectionTitle kicker={t.featured.kicker} title={t.featured.title} lead={t.featured.lead} />
-	<div class="featured-list">
-		{
-			featuredProjects.map((project, index) => (
-				<FeaturedProject project={project} lang={lang} reverse={index % 2 === 1} />
-			))
-		}
+<section class="section-band section-muted" id="projects">
+	<div class="container">
+		<SectionTitle kicker={t.featured.kicker} title={t.featured.title} lead={t.featured.lead} />
+		<div class="featured-list">
+			{featuredProjects.map((project) => <FeaturedProject project={project} lang={lang} />)}
+		</div>
 	</div>
 </section>
 
-<section class="container">
-	<SectionTitle kicker={t.others.kicker} title={t.others.title} lead={t.others.lead} />
-	<div class="project-grid">
-		{otherProjects.map((project) => <ProjectCard project={project} lang={lang} />)}
+<section class="section-band">
+	<div class="container">
+		<SectionTitle kicker={t.others.kicker} title={t.others.title} lead={t.others.lead} />
+		<div class="project-grid">
+			{otherProjects.map((project) => <ProjectCard project={project} lang={lang} />)}
+		</div>
 	</div>
 </section>
 
 <StackSection lang={lang} />
 
-<section class="container" id="about">
-	<SectionTitle kicker={t.about.kicker} title={t.about.title} />
-	<p class="prose reveal">{t.about.body}</p>
+<section class="section-band" id="about">
+	<div class="container">
+		<SectionTitle kicker={t.about.kicker} title={t.about.title} />
+		<p class="prose reveal">{t.about.body}</p>
+	</div>
 </section>
 
-<section class="container" id="contact">
-	<SectionTitle kicker={t.contact.kicker} title={t.contact.title} lead={t.contact.body} />
-	<div class="contact-links reveal">
-		<a
-			class="btn btn-primary"
-			href="https://github.com/T1NG4"
-			target="_blank"
-			rel="noopener noreferrer">{t.contact.github}</a
-		>
-		<a
-			class="btn"
-			href="https://discord.com/users/871460606618767360"
-			target="_blank"
-			rel="noopener noreferrer">{t.contact.discord}</a
-		>
+<section class="section-band section-muted" id="contact">
+	<div class="container">
+		<SectionTitle kicker={t.contact.kicker} title={t.contact.title} lead={t.contact.body} />
+		<div class="contact-links reveal">
+			<a
+				class="btn btn-primary"
+				href="https://tgs.gamer.gd/"
+				target="_blank"
+				rel="noopener noreferrer">TGS Community</a
+			>
+			<a
+				class="btn btn-outline"
+				href="https://github.com/T1NG4"
+				target="_blank"
+				rel="noopener noreferrer">{t.contact.github}</a
+			>
+			<a
+				class="btn btn-outline"
+				href="https://discord.com/users/871460606618767360"
+				target="_blank"
+				rel="noopener noreferrer">{t.contact.discord}</a
+			>
+		</div>
 	</div>
 </section>

@@ -16,7 +16,7 @@ const initials = project.title[lang].slice(0, 2).toUpperCase();
 ---
 
 <article
-	class:list={['featured', 'reveal', { reverse }]}
+	class:list={['featured', 'product-style', 'reveal', { reverse }]}
 	style={`--glow: ${project.accent}`}
 >
 	<div class="featured-body">
@@ -79,7 +79,7 @@ const initials = project.title[lang].slice(0, 2).toUpperCase();
 			</div>
 		) : (
 			<div class="featured-media placeholder">
-				<span>{initials}</span>
+				<span>{project.slug === 'tgs-community' ? 'TGS' : initials}</span>
 			</div>
 		)
 	}

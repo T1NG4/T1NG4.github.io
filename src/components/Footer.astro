@@ -12,17 +12,22 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-	<div class="container inner">
-		<span>© {year} T1NG4 · {t.footer.builtWith}</span>
+	<div class="container footer-content">
+		<div class="footer-brand">
+			<span class="logo-mark">TGS</span>
+			<p>T1NG4 · {t.footer.builtWith}</p>
+		</div>
 		<div class="footer-links">
+			<a href="https://tgs.gamer.gd/" rel="noopener noreferrer">TGS Community</a>
 			<a href="https://github.com/T1NG4" rel="noopener noreferrer">GitHub</a>
 			<a
 				href="https://chromewebstore.google.com/detail/ripper-search/hnofnogigohohmhnbjokglneeeignolj"
-				rel="noopener noreferrer">Chrome Web Store</a
+				rel="noopener noreferrer">Ripper Search</a
 			>
-			<a href={lang === 'en' ? '/en/#projects' : '/#projects'} rel="noopener noreferrer"
-				>{t.nav.projects}</a
-			>
+			<a href={lang === 'en' ? '/en/#projects' : '/#projects'}>{t.nav.projects}</a>
 		</div>
+	</div>
+	<div class="container footer-bottom">
+		<span>© {year} T1NG4. {t.footer.rights}</span>
 	</div>
 </footer>

@@ -12,35 +12,49 @@ const t = useTranslations(lang);
 const prefix = lang === 'en' ? '/en' : '';
 ---
 
-<section class="hero container" id="home">
-	<span class="hero-badge">
-		<span class="dot"></span>
-		{t.hero.badge}
-	</span>
-	<p class="hero-greeting">{t.hero.greeting}</p>
-	<h1><span class="gradient">{t.hero.name}</span></h1>
-	<p class="hero-headline">{t.hero.headline}</p>
-	<p class="hero-tagline">{t.hero.tagline}</p>
+<section class="hero-band" id="home">
+	<div class="hero-container">
+		<div class="hero-content">
+			<span class="hero-badge">{t.hero.badge}</span>
+			<p class="hero-greeting">{t.hero.greeting}</p>
+			<h1 class="hero-title">{t.hero.name}</h1>
+			<p class="hero-headline">{t.hero.headline}</p>
+			<p class="hero-tagline">{t.hero.tagline}</p>
 
-	<div class="hero-actions">
-		<a class="btn btn-primary" href={`${prefix}/#projects`}>{t.hero.ctaProjects}</a>
-		<a class="btn" href="https://github.com/T1NG4" target="_blank" rel="noopener noreferrer">
-			{t.hero.ctaGithub}
-		</a>
-	</div>
+			<div class="hero-actions">
+				<a class="btn btn-primary" href="https://tgs.gamer.gd/" target="_blank" rel="noopener noreferrer">
+					{t.hero.ctaTgs}
+				</a>
+				<a class="btn btn-secondary" href={`${prefix}/#projects`}>{t.hero.ctaProjects}</a>
+				<a
+					class="btn btn-secondary"
+					href="https://github.com/T1NG4"
+					target="_blank"
+					rel="noopener noreferrer">{t.hero.ctaGithub}</a
+				>
+			</div>
 
-	<div class="hero-stats">
-		<div class="hero-stat">
-			<strong>{projects.length}</strong>
-			<span>{t.hero.stats.projects}</span>
+			<div class="hero-stats">
+				<div class="hero-stat">
+					<strong>{projects.length}</strong>
+					<span>{t.hero.stats.projects}</span>
+				</div>
+				<div class="hero-stat">
+					<strong>FiveM</strong>
+					<span>{t.hero.stats.platforms}</span>
+				</div>
+				<div class="hero-stat">
+					<strong>T1NG4</strong>
+					<span>{t.hero.stats.languages}</span>
+				</div>
+			</div>
 		</div>
-		<div class="hero-stat">
-			<strong>3</strong>
-			<span>{t.hero.stats.platforms}</span>
-		</div>
-		<div class="hero-stat">
-			<strong>C#/C++/TS</strong>
-			<span>{t.hero.stats.languages}</span>
+
+		<div class="hero-visual" aria-hidden="true">
+			<div class="hero-logo-block">
+				<span class="hero-logo-text">TGS</span>
+				<span class="hero-logo-sub">Community</span>
+			</div>
 		</div>
 	</div>
 </section>

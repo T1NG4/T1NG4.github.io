@@ -26,9 +26,11 @@ const technologies = [
 ];
 ---
 
-<section class="container" id="stack">
+<section class="section-band section-muted" id="stack">
+	<div class="container">
 	<SectionTitle kicker={t.stack.kicker} title={t.stack.title} lead={t.stack.lead} />
 	<div class="stack-grid reveal">
 		{technologies.map((tech) => <span class="stack-chip">{tech}</span>)}
+	</div>
 	</div>
 </section>
