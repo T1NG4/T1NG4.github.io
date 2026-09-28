@@ -23,49 +23,6 @@ export type Project = {
 
 export const projects: Project[] = [
 	{
-		slug: 'spray-interception',
-		repo: 'T1NG4/TGS-SPRAY-interception-releases',
-		url: 'https://github.com/T1NG4/TGS-SPRAY-interception-releases',
-		externalUrl:
-			'https://github.com/T1NG4/TGS-SPRAY-interception-releases/releases/latest',
-		externalLabel: { pt: 'Baixar agora', en: 'Download now' },
-		featured: true,
-		image: '/projects/spray-interception.jpg',
-		accent: '#ff5f6d',
-		year: '2026',
-		stack: ['TypeScript', 'Electron', 'Windows'],
-		tags: ['desktop', 'windows', 'overlay'],
-		showReleaseBadges: true,
-		title: { pt: 'SPRAY INTERCEPTION', en: 'SPRAY INTERCEPTION' },
-		kicker: { pt: 'Aplicativo Windows', en: 'Windows app' },
-		summary: {
-			pt: 'Utilitário de compensação de recoil para Windows 10/11, com HUD in-game, biblioteca de armas e atualização automática.',
-			en: 'Recoil compensation utility for Windows 10/11, with in-game HUD, weapon library, and automatic updates.',
-		},
-		description: {
-			pt: 'Aplicativo desktop que aplica compensação de recoil no cursor com movimento suave e humanizado. Não lê memória do jogo, não injeta código e não altera arquivos — apenas move o mouse via driver de input. Inclui perfis por arma, HUD overlay arrastável, contas Free/Pro e atualização automática pelo GitHub Releases.',
-			en: 'Desktop app that applies recoil compensation to the cursor with smooth, humanized movement. It does not read game memory, inject code, or modify files — it only moves the mouse through an input driver. Includes per-weapon profiles, a draggable HUD overlay, Free/Pro accounts, and auto-updates via GitHub Releases.',
-		},
-		highlights: {
-			pt: [
-				'Compensação configurável: offset X/Y, intervalo, jitter, rampa e humanização',
-				'Biblioteca de armas com mira simples ou híbrida (1x a 4x)',
-				'Perfis com slots de primária e secundária, com binds no jogo',
-				'HUD overlay in-game com posição arrastável',
-				'Rapid Fire, lanterna automática e strobe',
-				'Atualizações automáticas e import/export de configurações',
-			],
-			en: [
-				'Configurable compensation: X/Y offset, interval, jitter, ramp, and humanization',
-				'Weapon library with simple or hybrid aiming (1x to 4x)',
-				'Profiles with primary and secondary slots, bound in-game',
-				'Draggable in-game HUD overlay',
-				'Rapid Fire, automatic flashlight, and strobe',
-				'Automatic updates plus config import/export',
-			],
-		},
-	},
-	{
 		slug: 'ripper-search',
 		repo: 'T1NG4/ripper-search',
 		url: 'https://github.com/T1NG4/ripper-search',
@@ -136,6 +93,47 @@ export const projects: Project[] = [
 				'Automatic graphics download and updates',
 				'Mod validation before joining the server',
 				'Self-updating launcher',
+			],
+		},
+	},
+	{
+		slug: 'spray-interception',
+		repo: 'T1NG4/TGS-SPRAY-interception-releases',
+		url: 'https://github.com/T1NG4/TGS-SPRAY-interception-releases',
+		externalUrl:
+			'https://github.com/T1NG4/TGS-SPRAY-interception-releases/releases/latest',
+		externalLabel: { pt: 'Baixar', en: 'Download' },
+		featured: false,
+		image: '/projects/spray-interception.jpg',
+		accent: '#e879a9',
+		year: '2026',
+		stack: ['TypeScript', 'Electron', 'Windows'],
+		tags: ['desktop', 'windows', 'training'],
+		showReleaseBadges: true,
+		title: { pt: 'SPRAY INTERCEPTION', en: 'SPRAY INTERCEPTION' },
+		kicker: { pt: 'Treino de recoil · Windows', en: 'Recoil training · Windows' },
+		summary: {
+			pt: 'Ferramenta de treinamento de recoil para Windows 10/11: perfis por arma, biblioteca configurável e HUD para praticar padrões de spray.',
+			en: 'Recoil training tool for Windows 10/11: per-weapon profiles, a configurable library, and a HUD to practice spray patterns.',
+		},
+		description: {
+			pt: 'Aplicativo desktop focado em treinar controle de recoil e consistência de spray. Você configura padrões por arma e zoom, salva perfis e usa um HUD leve para acompanhar a prática. Não lê memória do jogo nem injeta código — o foco é configurar e repetir o treino no seu ritmo, com atualizações pelo GitHub Releases.',
+			en: 'Desktop app focused on training recoil control and spray consistency. You configure patterns per weapon and zoom, save profiles, and use a lightweight HUD to support practice. It does not read game memory or inject code — the focus is setting up and repeating training at your own pace, with updates via GitHub Releases.',
+		},
+		highlights: {
+			pt: [
+				'Perfis e biblioteca de armas para treinar padrões de spray',
+				'Ajustes de timing, rampa e humanização para repetir o mesmo movimento',
+				'HUD opcional para acompanhar a sessão de treino',
+				'Import/export de configurações entre máquinas',
+				'Atualizações automáticas via releases',
+			],
+			en: [
+				'Profiles and weapon library to practice spray patterns',
+				'Timing, ramp, and humanization settings to repeat the same movement',
+				'Optional HUD to support training sessions',
+				'Config import/export across machines',
+				'Automatic updates via releases',
 			],
 		},
 	},

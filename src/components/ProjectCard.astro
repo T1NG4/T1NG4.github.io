@@ -22,5 +22,19 @@ const detailPath = localizedProjectPath(lang, project.slug);
 		{project.stack.map((item) => <span class="chip">{item}</span>)}
 	</div>
 
+	{
+		project.showReleaseBadges && (
+			<div class="featured-badges">
+				<img
+					src={`https://img.shields.io/github/v/release/${project.repo}?include_prereleases&label=release&style=flat-square&color=7c5cff`}
+					alt=""
+					loading="lazy"
+					width="120"
+					height="20"
+				/>
+			</div>
+		)
+	}
+
 	<a class="card-link" href={detailPath}>{t.project.viewDetails} <span>→</span></a>
 </article>

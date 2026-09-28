@@ -17,7 +17,7 @@ export const ui = {
 			name: 'T1NG4',
 			headline: 'Software desktop e web que as pessoas realmente usam.',
 			tagline:
-				'Crio aplicativos Windows, extensões de navegador e ferramentas para comunidades — do driver de input ao overlay in-game, do backend ao pixel final.',
+				'Crio aplicativos Windows, extensões de navegador e ferramentas para comunidades — do launcher com auto-update à extensão na Chrome Web Store.',
 			ctaProjects: 'Ver projetos',
 			ctaGithub: 'GitHub',
 			stats: {
@@ -85,7 +85,7 @@ export const ui = {
 			name: 'T1NG4',
 			headline: 'Desktop and web software people actually use.',
 			tagline:
-				'I build Windows apps, browser extensions, and community tooling — from input drivers to in-game overlays, from backend to the final pixel.',
+				'I build Windows apps, browser extensions, and community tooling — from self-updating launchers to extensions on the Chrome Web Store.',
 			ctaProjects: 'View projects',
 			ctaGithub: 'GitHub',
 			stats: {
